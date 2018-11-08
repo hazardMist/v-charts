@@ -5,6 +5,7 @@ import { cloneDeep } from 'utils-lite'
 const pieRadius = 100
 const ringRadius = [80, 100]
 const roseRingRadius = [20, 100]
+const pieOffsetX = '50%'
 const pieOffsetY = 200
 
 function getPieSeries (args) {
@@ -15,6 +16,7 @@ function getPieSeries (args) {
     dimension,
     metrics,
     radius,
+    offsetX,
     offsetY,
     selectedMode,
     hoverAnimation,
@@ -51,7 +53,7 @@ function getPieSeries (args) {
     selectedMode,
     hoverAnimation,
     roseType,
-    center: ['50%', offsetY]
+    center: [offsetX, offsetY]
   }
   let rowsTempLength = rowsTemp.length
   rowsTemp.forEach((dataRows, index) => {
@@ -188,6 +190,7 @@ export const pie = (columns, rows, settings, extra, isRing) => {
         ? roseRingRadius
         : ringRadius
       : pieRadius,
+    offsetX = pieOffsetX,
     offsetY = pieOffsetY,
     legendLimit = 30,
     selectedMode = false,
@@ -209,6 +212,7 @@ export const pie = (columns, rows, settings, extra, isRing) => {
     dimension,
     metrics,
     radius,
+    offsetX,
     offsetY,
     selectedMode,
     hoverAnimation,
